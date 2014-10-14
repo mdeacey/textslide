@@ -1,71 +1,993 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Textslide by mdeacey</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Textslide</h1>
-        <p></p>
+  
+   
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
 
-        <p class="view"><a href="https://github.com/mdeacey/textslide">View the Project on GitHub <small>mdeacey/textslide</small></a></p>
+  
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+
+    <script src="../jquery/js.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,400,600' rel='stylesheet' type='text/css'>
+
+    <style>
 
 
-        <ul>
-          <li><a href="https://github.com/mdeacey/textslide/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/mdeacey/textslide/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/mdeacey/textslide">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+.base {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  direction: ltr;
+}
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+.content{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+.margin {
+  position: relative;
+  margin-right: 15%;
+  margin-left: 15%;
+  top: 45%;
+  transform: translateY(-55%);
+}
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/mdeacey">mdeacey</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+.smalltext {
+	color: #FFF;
+  font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    z-index: 9000; 
+    bottom: 2%;
+    text-decoration: none;
+}
+
+.boldsmalltext
+{
+font-weight: 600;
+color: #fff;
+    text-decoration: none;
+}
+
+
+.middleinfo {
+position: fixed;
+	text-align: center; 
+	  width: 100%;
+}
+
+.contact {
+	position: fixed;
+	left: 2%;
+}
+
+.share {
+	position: fixed;
+	right: 2%;
+}
+
+
+.red {
+  background: #d09999;
+}
+.purple {
+    background: #9e99d0;
+}
+.blue {
+    background: #99bcd0;
+}
+.green {
+    background: #9fd099;
+}
+.orange {
+    background: #d0b299;
+}
+.pink {
+  background: #d099bd;
+}
+.lblue {
+    background: #99d0ce;
+}
+.olive {
+    background: #bbd099;
+}
+.green2 {
+    background: #99d0b5;
+}
+.navy {
+    background: #99b3d0;
+}
+
+
+.text {
+    color: #FFF;
+  font-size: 58px;
+  font-style: italic;
+    text-align: center; 
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    line-height: 66px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 960px) { 
+.text {
+    font-size: 36px;line-height: 42px;}
+.smalltext {font-size: 10px;}
+}
+@media screen and (min-width: 0px) and (max-width: 500px) { 
+.text {font-size: 24px;line-height: 32px;}
+
+.smalltext {font-size: 8px;}
+}
+
     
+
+    </style>
+    
+  </head>
+
+
+
+
+  <body>
+
+
+
+
+
+  	<div class="smalltext middleinfo">A responsive project by <a href="http://yahoo.com" class="boldsmalltext" target="_blank">Marcus Deacey</a>
+  		using the <a href="https://www.google.com/fonts/specimen/Open+Sans" class="boldsmalltext" target="_blank" >Open Sans</a> typeface.
+  	</div>
+  	<div class="smalltext contact"><a href="mailto:marcusdeacey@gmail.com" class="boldsmalltext">Contact</a></div>
+  	<div class="smalltext share"><a href="http://hrefshare.com/a81a" class="boldsmalltext" target="_blank">Share</a></div>
+
+
+
+
+<div id="javaSlideSettings" class="base text">
+
+
+
+
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A book holds a house of gold."</strong>
+    </div>
+
+<div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A black plum is as sweet as a white."</strong>
+    </div>
+
+<div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A bird in the hand is worth two in the bush."</strong>
+    </div>
+
+<div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"90% of inspiration is perspiration."</strong>
+    </div>
+
+<div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A baby is an alimentary canal with a loud voice at one end and no responsibility at the other."</strong>
+  </div>
+
+  <div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A bad custom is like a good cake, better broken than kept."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A bad excuse is better than none."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A bad penny always turns up."</strong>
+  </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A bad workman blames his tools."</strong>
+  </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A banker is a fellow who lends you his umbrella when the sun is shining, but wants it back the minute it begins to rain."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A barking dog never bites."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A best friend is like a four leaf clover, hard to find and lucky to have."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A bird can sing with a broken wing, but you cant pluck feathers off a frog."</strong>
+    </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A book is like a garden carried in the pocket."</strong>
+    </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A bus is a vehicle that runs twice as fast when you are after it as when you are in it."</strong>
+    </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A calm sea does not make a skilled sailor."</strong>
+    </div>
+
+<div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A camel is a horse designed by a committee."</strong>
+    </div>
+
+<div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A cat has nine lives."</strong>
+    </div>
+
+<div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A cat may look at a king."</strong>
+    </div>
+
+<div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A cat may look at a Queen."</strong>
+  </div>
+
+  <div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A celebrity is someone who works hard all his life to become known and then wears dark glasses to avoid being recognized."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A chain is no stronger than its weakest link."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A change is as good as a rest."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A child is a person who can dismantle in 5 minutes the toy it took you 5 hours to put together."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A cold bitter Christmas, a fat churchyard."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A constant guest is never welcome."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A creaking door hangs longest."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A crowd is not company."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A danger foreseen is half avoided."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A day of sorrow is longer than a month of joy."</strong>
+    </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A deaf husband and a blind wife are always a happy couple."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A diamond among men."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A dog who attends a flea circus most likely will steal the whole show."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A drop of ink may make a million think."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A drowning man will clutch at straws."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A fair exchange is no robbery."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A faithful friend is a medicine for life."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A fly will not get into a closed mouth."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A fool and his money are soon parted."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A fool at forty is a fool indeed."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A fool finds no pleasure in understanding but delights in airing his own opinions."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A fool gives; a wise man takes."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A fool may give a wise man counsel."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A friend in need is a friend indeed."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A friend is not so soon gotten as lost."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A fair exchange is no robbery."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A friend to all is a friend to none."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A gentle heart is tied with an easy thread."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A gentleman without an estate is a pudding without suet."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A gift given in secret soothes anger, and a bribe concealed in the cloak pacifies great wrath."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A golden key opens all doors."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good beginning makes a good ending."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A fool may give a wise man counsel."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good conscience is the best divinity."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A good denial, the best point in law."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A good example is the best sermon."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A good lawyer must be a great liar."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good man is hard to find."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good mate is the road map for the spaghetti junction of life."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A good name is better than a good face."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good name is more desirable than great riches; to be esteemed is better than silver or gold."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good tongue is a good weapon."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A good tree brings forth good fruit."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A gossip betrays a confidence, but a trustworthy man keeps a secret."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A gossips mouth is the devils postbag."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A great dowry is a bed full of brambles."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A growing youth has a wolf in his belly."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A guilty conscience needs no accuser."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A hairy man is a happy man, a hairy wife is a witch."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A handful of patience is worth more than a bushel of brains."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A happy heart is better than a full purse."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A happy heart makes the face cheerful, but heartache crushes the spirit."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A heart at peace gives life to the body, but envy rots the bones."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A gossip betrays a confidence, but a trustworthy man keeps a secret."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A heavy purse gives to a light heart."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A hedge between keeps friendship green."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A helping hand is no farther than at the end of your sleeve."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A house is not a home."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A huge part of real love is constant forgiveness."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A journey of a thousand miles begins with a single step."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A lender nor borrower be."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A leopard cannot change its spots."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A little of what you fancy does you good."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A long way to go."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A man comes from the dust and in the dust he will end - and in the meantime it is good to drink a sip of vodka."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A man in love is a fool, and an old man in love is the greatest fool of all."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A man is at his tallest when he stoops to help a child."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A man is judged by his deeds, not by his words."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A man is known by the company he keeps."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A man of words and not of deeds is like a garden full of weeds."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A man that breaks his word bids other be false to him."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A man walks, God places the feet."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A miss is as good as a mile."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A Miss is as good as a Mr."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A new broom sweeps clean, but the old brush knows all the corners."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A nod is as good as a wink to a blind man."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A penny always turns up."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A person who can smile when things go wrong has found someone to blame it on."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A picture paints a thousand words."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A place for everything and everything in its place."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A positive pessimist is better than a negative optimist."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A problem is a chance for you to do your best."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A problem shared is a problem halved."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A proverb is a true word."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A proverb never lies, it is only its meaning which deceives."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A quarrelsome wife is like a constant dripping on a rainy day."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A reed before the wind lives on, while might oaks do fall."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A rolling stone gathers no moss."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A ruler who oppresses the poor is like a driving rain that leaves no crops."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A scalded cat fears cold water."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A short absence quickens love, a long absence kills it."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A slap on the back is only a few inches away from a kick in the butt."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A slip of the tongue is no fault of the mind and he who laughs is very unkind."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A sly rabbit will have three openings to its den."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A small spark makes a great fire."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A soft answer turneth away wrath."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A sprat to catch a mackerel."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A spy with flatulence will always blow his cover."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A squirrel is just a rat with good PR."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A stitch in time saves nine."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A tidy house holds a bored woman."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A volunteer is worth twenty pressed men."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A watched pot never boils."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A whistling women and a crowing hen are neither fit for God or men."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A wise head keeps a still tongue."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A wise son brings joy to his father, but a foolish son grief to his mother."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"A wonder lasts but nine days."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"A worry shared is a worry halved."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Aaah, a man who runs through airport swing-doors is going to Bangkok."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Absence makes the heart grow fonder."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Abundance, like want, ruins many."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Accidents happen."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Accidents will happen in the best regulated families."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Actions speak louder than words."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Admiration is the daughter of ignorance."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Adversity doesnt build character, it reveals it."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Adversity Makes Strange Bedfellows."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"After a famine in the stall comes a famine in the hall."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"After all is said and done, more is said than done."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"After dark all cats are leopards."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"After dinner rest a while, after supper walk a mile."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"After the game, the king and the pawn go into the same box."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"After the storm comes the calm."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Age before beauty."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Age has no friend but the wrinkles of the mind."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Age is a very high price to pay for maturity."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Agree, for the law is costly."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All are not cooks that walk with long knives."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All beginning is difficult - the first million is the hardest."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"All good things come to he who waits."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All good things must come to an end."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"After the game, the king and the pawn go into the same box."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All in good time."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All is for the best in the best of the possible worlds."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"All lay loads on a willing horse."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"All roads lead to Rome."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"All sunshine makes a desert."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All that glisters is not gold."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All the world loves a lover."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"All things are possible with God."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All things come to those who wait."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All work and no play makes Jack a dull boy."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"All you need is love."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Although the sun may shine, leave not thy cloak at home."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Always the bridesmaid, never the bride."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"An ant may well destroy a whole dam."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"An apple a day keeps the doctor at bay."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"An apple a day keeps the doctor away."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"An eye for an eye, a tooth for a tooth."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"An old fox is not easily snared."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"An old Ox makes a straight furrow."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"An ounce of practice is worth a pound of precept."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Angry men make themselves a bed of nettles."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Another day, another dollar."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Any fool can criticise, condemn and complain and most fools do."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Any port in a storm."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Anybody can make history but only a great man can write it."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Appearances are deceptive."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"April is the cruellest month."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Art has no enemy but ignorance."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Artificial intelligence is no match for natural stupidity."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As busy as a bee."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As delicate as a baby's eye lashes."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As dirty as a pig."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"As is the gardener, so is the garden."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"As safe as houses."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"As soft as velvet."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As strong as love."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As useful as a chocolate fireguard (or teapot)."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"As wrinkled as an elephant's hide."</strong>
+  </div>
+
+<div class="content red">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As you make your bed, so must you lie in it."</strong>
+    </div>
+
+  <div class="content purple">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"As you sow, so shall you reap."</strong>
+    </div>
+
+  <div class="content blue">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Ask a silly question and you get a silly answer."</strong>
+  </div>
+
+  <div class="content green">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Ask no questions and hear no lies."</strong>
+  </div>
+
+  <div class="content orange">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"At the end of the game, the King and the pawn go back in the same box."</strong>
+  </div>
+
+<div class="content pink">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Attack is the best form of defence."</strong>
+    </div>
+
+  <div class="content lblue">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Back to the future."</strong>
+    </div>
+
+  <div class="content olive">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Bad news travels fast."</strong>
+    </div>
+
+  <div class="content green2">
+      <strong class="textAnimation margin" data-move-effect="none"  data-delay="200">"Barking dogs seldom bite."</strong>
+    </div>
+
+  <div class="content navy">
+      <strong class="textAnimation margin" data-move-effect="none" data-delay="200">"Be a good sport - wherever you go."</strong>
+  </div>
+
+		</div>
+
+
+
+
+    <script>
+      jQuery(document).ready(function($) {
+  jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
+  $('#javaSlideSettings').base({
+    blockLoop: true,
+    loop: true,
+    randomizeSlides: true,
+    transitionType: 'fade',
+    keyboardNavEnabled: false,
+    block: {
+      delay: 400
+    }
+  });
+});
+    </script>
+
   </body>
 </html>
